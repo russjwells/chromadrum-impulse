@@ -186,7 +186,9 @@
                   <div class="grid__item one-half">
                     <p class="h4">{{ cart.total_price | money }}</p>
                   </div>
+                  <p class="affirm-as-low-as" data-page-type="cart" data-amount="{{cart.total_price}}"></p>
                 </div>
+                
                 <small>
                   {{ 'cart.general.shipping_at_checkout' | t }}<br />
                   {% if settings.enable_currencies %}

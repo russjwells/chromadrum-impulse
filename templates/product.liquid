@@ -1,4 +1,5 @@
 {% section 'product-template' %}
+<p class="affirm-as-low-as" data-page-type="product" data-amount="{{variant.price}}"></p>
 {% section 'product-recommendations' %}
 {% section 'recently-viewed' %}
 
@@ -19,4 +20,20 @@
     soldOut: {{ 'products.product.sold_out' | t | json }},
     unavailable: {{ 'products.product.unavailable' | t | json }}
   };
+</script>
+
+<script>
+  var selectCallback = function(variant, selector) {
+     
+    //Affirm Promos: Monthly Payment Messaging, dynamic pricing embed code
+    //
+    //NOTE: This Affirm embed code is only needed if you are using product variants.
+    //'selectCallback' might not be in your product.liquid template if product variants are not used or supported.
+    //If you are using product variants in your shop, use the following code to dynamically update your Monthly Payment Messaging when the customer selects a different product variant.
+    
+    $('.affirm-as-low-as').attr('data-amount',variant.price);
+    affirm.ui.refresh();
+     
+  };
+ 
 </script>
