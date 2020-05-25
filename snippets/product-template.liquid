@@ -138,7 +138,7 @@
 
               <span class="product__unit-price--{{ section_id }}">{{ current_variant.unit_price | money }}</span>/{{ unit_price_base_unit }}
             </div>
-
+            <p class="affirm-as-low-as" data-page-type="product" data-amount="{{variant.price}}"></p>
             {%- if settings.inventory_enable or settings.inventory_transfers_enable -%}
               {%- assign variants_with_inventory_tracking = product.variants | where: 'inventory_management', 'shopify' -%}
 
@@ -183,7 +183,7 @@
                 </div>
               {%- endif -%}
             {%- endif -%}
-
+            
             <hr class="hr--medium">
 
             {%- unless isModal -%}
